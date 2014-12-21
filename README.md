@@ -1,10 +1,14 @@
-# Übersicht Fever Hotlinks Widget
+# Fever RSS Hotlinks Widget
 
 Made for [Übersicht](http://tracesof.net/uebersicht/)
 
 This widget pulls hotlinks from your [Fever](http://feedafever.com/) installation and displays them on the desktop.
 
-## Options
+![screenshot](screenshot.png)
+
+## Options and Installation
+
+Unzip and drag the fever.widget folder into your Übersicht widgets folder.
 
 You need to add the URL of your Fever installation, your username and password into `fever.coffee`. 
 
