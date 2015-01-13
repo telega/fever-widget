@@ -9,11 +9,10 @@ var headers = {
 
 var options = {
   hostname: process.argv[2],
-  path:'/?api&links',
+  path:'/fever/?api&links',
   method:'POST',
   headers:headers
 };
-
 
 var req = http.request(options, function(res) {
     var body = '';
