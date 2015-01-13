@@ -1,9 +1,9 @@
 crypto = require 'crypto'
 
 options =
-    feverURL    : "fever.telega.org"
-    feverUser   : "tom@telega.org"
-    feverPass   : "bpr9Z4CgAMLWYn"
+    feverURL    : "yourserver.com" #dont add /fever
+    feverUser   : "your@username.com"
+    feverPass   : "yourpassword"
     feverAPIkey : () -> crypto.createHash("md5").update(@feverUser + ":" + @feverPass).digest("hex")
 
 
