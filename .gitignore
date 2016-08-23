@@ -1,1 +1,3 @@
 .DS_Store
+fever.widget/lib/node_modules
+fever.widget/.eslintrc.json

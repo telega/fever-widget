@@ -1,11 +1,7 @@
-crypto = require 'crypto'
-
 options =
-    feverURL    : "yourserver.com" #dont add /fever
-    feverUser   : "your@username.com"
-    feverPass   : "yourpassword"
-    feverAPIkey : () -> crypto.createHash("md5").update(@feverUser + ":" + @feverPass).digest("hex")
-
+    feverURL    : "http://myserver.com/fever" 
+    feverUser   : "me@myEmail.com"
+    feverPass   : "Password"
 
 refreshFrequency: 600000            # Update every 10 minutes
 
@@ -15,7 +11,9 @@ style: """
   width: 460px
   height: 700px
   color: #fff
-  font-family: Helvetica Neue
+  font-family: menlo
+  font-size: 20px
+  -webkit-font-smoothing: antialiased
 
   .temp
     border-bottom:1px solid #fff
@@ -41,12 +39,13 @@ style: """
     text-decoration:none
     color:#fff
 
+  .error
+    color:red
+
 
 """
 
-command: "#{process.argv[0]} fever.widget/fever \
-                              \"#{options.feverURL}\" \
-                              \"#{options.feverAPIkey()}\""
+command: "#{process.argv[0]} fever.widget/lib/fever-data.js #{options.feverURL} -u #{options.feverUser} -p #{options.feverPass}"
 
 
 render: (output) -> """
@@ -58,12 +57,20 @@ update: (output, domEl) ->
   data = JSON.parse(output)
   el = $(domEl).find('.links')
   el.html ''
+  if data.Error?
+    el.append @renderError(data.Error)
   temp = 999
-  for link in data.links
-    if link.temperature < temp
-      temp = link.temperature
-      el.append @renderTemp(temp)
-    el.append @renderLink(link)
+  if data.links?
+    for link in data.links
+      if link.temperature < temp
+        temp = link.temperature
+        el.append @renderTemp(temp)
+      el.append @renderLink(link)
+renderError: (e) ->
+  
+    """
+       <p class = 'error'> #{e}</p>
+    """
 
 renderLink: (link) ->
   

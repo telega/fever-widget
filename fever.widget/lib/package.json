@@ -1,0 +1,29 @@
+{
+  "name": "fever.widget",
+  "version": "1.0.0",
+  "description": "Ubersicht widget for Fever RSS reader",
+  "main": "fever-data.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/telega/fever-widget.git"
+  },
+  "keywords": [
+    "Fever",
+    "RSS",
+    "Ubersicht"
+  ],
+  "author": "Tom Allen <tom@telega.org> (http://telega.org)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/telega/fever-widget/issues"
+  },
+  "homepage": "https://github.com/telega/fever-widget#readme",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "meow": "^3.7.0",
+    "request": "^2.74.0"
+  }
+}
